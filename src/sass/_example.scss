@@ -61,10 +61,6 @@
 }
 
 
-
-.is-hidden{
-    display: none;
-}
 .load-more{
 display: block;
   margin-left: auto;
@@ -97,4 +93,7 @@ button[type='submit'] {
   background-color: green;
   color: #fff;
   border-radius: 5px;
+}
+.is-hidden{
+    display: none;
 }

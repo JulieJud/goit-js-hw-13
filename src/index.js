@@ -58,9 +58,15 @@ function imageMarkup(images) {
 
 
 
-    if (images.length < 40) {
-        refs.loadMoreBtn.classList.add('is-hidden')
+
+}
+
+function checkImagesCount(total, current, per) {
+    if (current * per >= total) {
         Notiflix.Notify.info('We are sorry, but you have reached the end of search results.');
+        refs.loadMoreBtn.classList.add('is-hidden');
+    } else {
+        refs.loadMoreBtn.classList.remove('is-hidden');
     }
 }
 
