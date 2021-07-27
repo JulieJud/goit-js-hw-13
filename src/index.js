@@ -3,6 +3,7 @@ import Notiflix from "notiflix";
 import SimpleLightbox from "simplelightbox"
 import ImageService from './js/fetchImages'
 import imagesTpl from './templates/card.hbs'
+import '../node_modules/simplelightbox/src/simple-lightbox.scss';
 
 
 const refs = {
