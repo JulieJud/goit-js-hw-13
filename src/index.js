@@ -33,14 +33,21 @@ async function onSearch(e) {
     const response = await newApi.fetchImages();
 
     clearImageContainer();
+    
 
     return await imageMarkup(response);
 }
 
 async function onloadMoreBtnClick() {
-    const response = await newApi.fetchImages();
-    lightbox.refresh()
-    return imageMarkup(response);
+  
+  
+    const response =  await newApi.fetchImages();
+       
+    lightbox.refresh();
+    
+  
+    imageMarkup(response);
+      smoothScroll(response)
 
 }
 
@@ -49,11 +56,15 @@ async function onloadMoreBtnClick() {
 function imageMarkup(images) {
     refs.imagesContainer.insertAdjacentHTML('beforeend', imagesTpl(images))
     lightbox.refresh()
+      
     refs.loadMoreBtn.classList.remove('is-hidden')
+    
 
     if (images.length === 0) {
         refs.loadMoreBtn.classList.add('is-hidden')
+        
         return Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+        
     }
 
 
@@ -72,4 +83,12 @@ function checkImagesCount(total, current, per) {
 
 function clearImageContainer() {
     refs.imagesContainer.innerHTML = '';
+}
+
+function smoothScroll() {
+    const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
+    window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+    })
 }

@@ -18,11 +18,11 @@ export default class ImageService {
                     Notiflix.Notify.success(`Hooray! We found ${total} images.`);
                 }
                 this.page += 1;
+              
                 return hits;
             })
     }
-
-
+    
     resetPage() {
         this.page = 1;
     }
