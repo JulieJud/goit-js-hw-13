@@ -35,7 +35,8 @@ async function onSearch(e) {
     clearImageContainer();
     
 
-    return await imageMarkup(response);
+imageMarkup(response.hits);
+   
 }
 
 async function onloadMoreBtnClick() {
@@ -46,7 +47,7 @@ async function onloadMoreBtnClick() {
     lightbox.refresh();
     
   
-    imageMarkup(response);
+imageMarkup(response.hits)
       smoothScroll(response)
 
 }
