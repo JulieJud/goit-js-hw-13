@@ -35,7 +35,8 @@ async function onSearch(e) {
     clearImageContainer();
     
 
-imageMarkup(response.hits);
+    imageMarkup(response.hits);
+     Notiflix.Notify.success(`Hooray! We found ${response.total} images.`)
    
 }
 
@@ -48,7 +49,7 @@ async function onloadMoreBtnClick() {
     
   
 imageMarkup(response.hits)
-      smoothScroll(response)
+      smoothScroll()
 
 }
 
