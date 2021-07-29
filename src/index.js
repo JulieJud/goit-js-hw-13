@@ -23,6 +23,7 @@ async function onSearch(e) {
     e.preventDefault();
 
     newApi.query = e.currentTarget.elements.searchQuery.value;
+    e.currentTarget.elements.searchQuery.value =''
 
     if (newApi.query === '') {
         return Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
@@ -33,17 +34,19 @@ async function onSearch(e) {
     const response = await newApi.fetchImages();
 
     clearImageContainer();
-    
+     
 
     imageMarkup(response.hits);
+
+
+     
      Notiflix.Notify.success(`Hooray! We found ${response.total} images.`)
    
 }
 
 async function onloadMoreBtnClick() {
   
-  
-    const response =  await newApi.fetchImages();
+  const response =  await newApi.fetchImages();
        
     lightbox.refresh();
     
